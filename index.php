@@ -1,11 +1,4 @@
-<?php
-
-define ("APPLICATION_PATH", dirname(__FILE__));
-
-$application = new Yaf\Application(APPLICATION_PATH . "/config/application.ini");
-
-$response = $application
-    ->bootstrap() /* init custom view in bootstrap */
-	->run();
-
-?>
+<?php 
+define("APP_PATH",  realpath(dirname(__FILE__)) . '/../'); 
+$app  = new Yaf\Application(APP_PATH . "/config/application.ini");
+$app->bootstrap()->run();
