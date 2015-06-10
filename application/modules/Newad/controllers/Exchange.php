@@ -34,7 +34,7 @@ class ExchangeController extends Yaf\Controller_Abstract {
 		$this->getView()->assign("media",  $currentMediaUnion);
 		$this->getView()->assign("auId",   $auId);
                //header('Content-Type: text/plain');
-                                  if ($auId==0) {
+                                  if ($auId==0 || $auId==3) {
                         header('Content-Type: text/plain');
                 }else{
                         header('Content-Type: text/html');
