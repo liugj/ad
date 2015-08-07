@@ -10,7 +10,7 @@ document.write('<div style="z-index: 1000; right: 0px; bottom: 0px; overflow-x: 
 document.write('<div style="z-index:1000; POSITION: absolute; right:0; height:30px; overflow:hidden;">');
 document.write('<span style="width:18px; height:18px; cursor:pointer; float:right; margin-left:1px; margin-top:12px; display:inline; background:url(/assets/img/buttons.png) no-repeat; hover{background-position:-39px -20px};margin-right:10px; width:15px; background-position:-39px 0;" onclick="closeDiv()"></span>');
 document.write('</span></div>');
-document.write('<iframe id="popFrame" scrolling="no" frameborder="0" width="300" allowtransparency="true" height="250" src="/newad/exchange/ad_9229_0.html" target="_blank">-</iframe>');
+document.write('<iframe id="popFrame" scrolling="no" frameborder="0" width="300" allowtransparency="true" height="250" src="http://www.adhufeng.com/newad/exchange/ad_9229_0.html" target="_blank">-</iframe>');
 document.write('</div>');
 document.write('</body>');
 document.write('</html>');
