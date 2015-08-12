@@ -15,8 +15,10 @@ class ExchangeController extends Yaf\Controller_Abstract {
             $content    = trim(file_get_contents($filename));
             $temp = explode(',', $content);
             $currentMediaUnion['size'] = explode('_', $size[$temp[1]]);
-            $currentMediaUnion['sites'] [$auId] = $siteId;
             list($nextSiteId, $nextAuId) = explode('_', $temp[0]);
+            if (isset($temp[2])) {
+                list($siteId, $auId) = explode('_', $temp[2]);
+            }
             $currentMediaUnion['sites'] [$auId] = $siteId;
             $currentMediaUnion['sites'] [$nextAuId] = $nextSiteId;
         }
@@ -24,7 +26,7 @@ class ExchangeController extends Yaf\Controller_Abstract {
         $this->getView()->assign("auId",   $auId);
         $this->getView()->assign("ver",   $ver);
         $this->getView()->assign("id",   $id);
-        if ($auId==0|| $auId==3) {
+        if ($auId == 0|| $auId == 3) {
             header('Content-Type: text/plain');
         }else{
             header('Content-Type: text/html');
