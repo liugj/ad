@@ -20,14 +20,20 @@ class ExchangeController extends Yaf\Controller_Abstract {
                 list($siteId, $auId) = explode('_', $temp[2]);
             }
             $currentMediaUnion['sites'] [$auId] = $siteId;
+            if (isset($temp[3])) {
+                list($midSiteId, $midAuId) = explode('_', $temp[3]);
+                $currentMediaUnion['sites'] [$midAuId] = $midSiteId;
+                $ver = 'r99';
+            }
             $currentMediaUnion['sites'] [$nextAuId] = $nextSiteId;
         }
+
         $this->getView()->assign("media",  $currentMediaUnion);
         $this->getView()->assign("auId",   $auId);
         $this->getView()->assign("ver",   $ver);
         $this->getView()->assign("id",   $id);
         if ($auId == 0|| $auId == 3) {
-            header('Content-Type: text/plain');
+            header('Content-Type: text/plain'); 
         }else{
             header('Content-Type: text/html');
         }
