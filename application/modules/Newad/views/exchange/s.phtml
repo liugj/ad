@@ -208,7 +208,7 @@ ob_start();
           console.log("tx_callback--0--callback" );
       }
       var i = document.getElementById("l_qq_com");
-     <?php  if (0) { ?>
+    <?php if (in_array(end($sites), array(4) ) || in_array(end($media['sites']), array(1641,1593,1591))){ ?>
       var iframe = document.createElement("iframe");
       iframe.setAttribute("width","<?php echo $media['size'][0]; ?>");
       iframe.setAttribute("height","<?php echo $media['size'][1]; ?>");
@@ -223,6 +223,13 @@ ob_start();
           i.style.display = "none";
           i.parentNode.insertBefore(iframe, i);
       }
+    <?php }elseif (in_array(end($sites), array(5) )) { ?>
+        var js = document.createElement("script");
+        js.src="http://s.haiyunx.com/SSP/<?php echo end($media['sites']); ?>.js";
+        if (i) {
+           i.style.display = "none";
+           i.parentNode.insertBefore(js, i);
+        }
       <?php }else{ ?>
         var js = document.createElement("script");
         var fs = document.getElementsByTagName("script")[0];
