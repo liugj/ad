@@ -27,7 +27,6 @@ class ExchangeController extends Yaf\Controller_Abstract {
             }
             $currentMediaUnion['sites'] [$nextAuId] = $nextSiteId;
         }
-
         $this->getView()->assign("media",  $currentMediaUnion);
         $this->getView()->assign("auId",   $auId);
         $this->getView()->assign("ver",   $ver);

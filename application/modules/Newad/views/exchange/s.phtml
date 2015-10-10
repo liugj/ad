@@ -1,48 +1,75 @@
-<?php  $sites = array_keys($media['sites']);?>
+<?php  $sites = array_keys($media['sites']);
+?>
 <?php if ($ver == 'r99' && $auId ==0):
  ob_start(); 
 ?>
 <script type="text/javascript"> 
 (function(doc) { 
- var js = doc.createElement("script"), fs = doc.getElementsByTagName("script")[0]; 
- js.charset = "utf-8"; 
- js.src = "http://js.miaozhen.com/mz_ad_serving.js"; 
- fs.parentNode.insertBefore(js, fs); 
+    var js = doc.createElement("script"), fs = doc.getElementsByTagName("script")[0]; 
+    js.charset = "utf-8"; 
+    js.src = "http://js.miaozhen.com/mz_ad_serving.js"; 
+    fs.parentNode.insertBefore(js, fs); 
  })(document);
 </script> 
 <div id="MZADX_<?php echo $media['sites'][0] ; ?>"></div> 
 <div id="l_qq_com"></div> 
 <script> 
-function adhufengcallback_<?php echo $media['sites'][3] ; ?>( adId ) { 
-    crystal2.addStaticSlot(adId);
-    var adEl = document.getElementById("_adb_14465_<?php echo $media['sites'][3] ;?>");
-    if(!adEl ){ callback_<?php echo $media['sites'][3] ; ?>();
-    }else { 
-        var hasAd = adEl.childNodes.length > 0 ? true : false;
-        if ( !hasAd ) { 
-            callback_<?php echo $media['sites'][3] ; ?>();
+   function adhufengcallback_<?php echo $media['sites'][3] ; ?>( adId ) { 
+       crystal2.addStaticSlot(adId);
+       var adEl = document.getElementById("_adb_14465_<?php echo $media['sites'][3] ;?>");
+   
+       if(!adEl ){
+           callback_<?php echo $media['sites'][3] ; ?>();
+       }else { 
+           var hasAd = adEl.childNodes.length > 0 ? true : false;
+           if ( !hasAd ) { 
+               callback_<?php echo $media['sites'][3] ; ?>();
+           }
+       } 
+   } 
+   function callback_<?php echo $media['sites'][3] ;?>() {
+       if(window.console){ console.log("tx_callback--0--callback" );
+       } 
+       var i = document.getElementById("MZADX_<?php echo $media['sites'][0] ;?>");
+    <?php if (in_array(end($sites), array(4) ) || in_array(end($media['sites']), array(1641,1593,1591))){ ?>
+   
+       var iframe = document.createElement("iframe");
+       iframe.setAttribute("width","<?php echo $media['size'][0];?>");
+       iframe.setAttribute("height","<?php echo $media['size'][1];?>");
+       iframe.setAttribute("marginwidth", "0", 0);
+       iframe.setAttribute("marginheight", "0", 0);
+       iframe.setAttribute("border", "0");
+       iframe.setAttribute("frameborder", "0", 0);
+       iframe.setAttribute("scrolling", "no");
+       iframe.setAttribute("allowtransparency", "true");
+       iframe.src = "http://www.adhufeng.com/newad/exchange/s?auId=<?php echo end($sites);?>&siteId=<?php echo end($media['sites']) ;?>";
+       if (i && i.parentNode.getElementsByTagName("iframe").length==0) { 
+           i.style.display = "none";
+           i.parentNode.insertBefore(iframe, i);
+       }
+    <?php }elseif (in_array(end($sites), array(5) )) { ?>
+        var js = document.createElement("script");
+        js.src="http://s.haiyunx.com/SSP/<?php echo end($media['sites']); ?>.js";
+        if (i) {
+           i.style.display = "none";
+           i.parentNode.insertBefore(js, i);
         }
-    } 
-} 
-function callback_<?php echo $media['sites'][3] ;?>() {
-    if(window.console){ console.log("tx_callback--0--callback" );
-    } 
-    var iframe = document.createElement("iframe");
-    iframe.setAttribute("width","<?php echo $media['size'][0];?>");
-    iframe.setAttribute("height","<?php echo $media['size'][1];?>");
-    iframe.setAttribute("marginwidth", "0", 0);
-    iframe.setAttribute("marginheight", "0", 0);
-    iframe.setAttribute("border", "0");
-    iframe.setAttribute("frameborder", "0", 0);
-    iframe.setAttribute("scrolling", "no");
-    iframe.setAttribute("allowtransparency", "true");
-    iframe.src = "http://www.adhufeng.com/newad/exchange/s?auId=<?php echo end($sites);?>&siteId=<?php echo end($media['sites']) ;?>";
-    var i = document.getElementById("MZADX_<?php echo $media['sites'][0] ;?>");
-    if (i && i.parentNode.getElementsByTagName("iframe").length==0) { 
-        i.style.display = "none";
-        i.parentNode.insertBefore(iframe, i);
-    }
-}
+    <?php }else{ ?>
+        var js = document.createElement("script");
+        var fs = document.getElementsByTagName("script")[0];
+        js.src="http://impservice.union.youdao.com/imp/js/commonAd.js";
+
+        var js1 = document.createElement("script");
+        js1.text="yd_slot_id =\\\"<?php echo end($media['sites']);?>\\\"";
+        js1.id="yd_slot_id_<?php echo end($media['sites']); ?>";
+
+        if (i) {
+           i.style.display = "none";
+           i.parentNode.insertBefore(js1, i);
+           fs.parentNode.insertBefore(js, fs);
+        }
+   <?php  } ?>
+   }
 </script>
 <script>
 (function(win, doc) { 
@@ -68,28 +95,28 @@ function callback_<?php echo $media['sites'][3] ;?>() {
      });
    }
  if(true){ 
- var params = {};
- params["l"] = [<?php echo $media['sites'][0] ; ?>];
- params["r"] = "1";
- params["_srv"] = "MZADX";
- params["_callback"] = function(flag1, flag2) {
- if(window.console){ console.log("mz_callback--1--" + flag1 + "_" + flag2);
- } 
- if(flag1 == false && flag2 == false){ 
- callback_<?php echo $media['sites'][0] ;?>_tx();
- } 
- };
- params["_baseurl"] = "http://s.x.cn.grpreach.com/ax";
- __mz_rpq = win.__mz_rpq || [];
- __mz_rpq.push(params);
- }else{ } 
+    var params = {};
+    params["l"] = [<?php echo $media['sites'][0] ; ?>];
+    params["r"] = "1";
+    params["_srv"] = "MZADX";
+    params["_callback"] = function(flag1, flag2) {
+      if(window.console){ 
+          console.log("mz_callback--1--" + flag1 + "_" + flag2);
+      } 
+      if(flag1 == false && flag2 == false){ 
+          callback_<?php echo $media['sites'][0] ;?>_tx();
+      } 
+    };
+    params["_baseurl"] = "http://s.x.cn.grpreach.com/ax";
+    __mz_rpq = win.__mz_rpq || [];
+    __mz_rpq.push(params);
+    }else{ } 
 })(window, document);
 </script><?php $content = ob_get_contents();
       $content = trim($content);
       ob_end_clean();
       if (1) {
-?>document.write('<script type="text/javascript" src="http://www.adhufeng.com/js/ad_init.js"></script>');
-var ADE_PARAM = ['<?php echo str_replace("\n", '', $content);?>'];
+?>document.write('<script type="text/javascript" src="http://www.adhufeng.com/js/ad_init.js"></script>');var ADE_PARAM = ['<?php echo preg_replace("#\s+#", ' ', $content);?>'];
 <?php }else echo $content; ?>
 <?php elseif ($ver == 'r1' && $id>0):?>
 document.write('<script type="text/javascript" src="http://www.adhufeng.com/js/ad_init1.js"></script>');var ADE_PARAM1 = ['<script type="text/javascript">/*function tangocallback(id){console.log("tx_callback-->" + id);var myScript = document.createElement("script");myScript.setAttribute("type", "text/javascript");myScript.src = "http://www.adhufeng.com/ads/adexchange/ad.html?siteId=6294";var fs = document.getElementsByTagName("script")[0];fs.parentNode.insertBefore(myScript, fs);}*/function tangocallback(id) {if (window.console) {console.log("tx_callback-->" + id);}var iframe = document.createElement("iframe");iframe.setAttribute("width", "960");iframe.setAttribute("height", "900");iframe.setAttribute("marginwidth", "0", 0);iframe.setAttribute("marginheight", "0", 0);iframe.setAttribute("border", "0");iframe.setAttribute("frameborder", "0", 0);iframe.setAttribute("scrolling", "no");iframe.setAttribute("allowtransparency", "true");iframe.src = "http://www.adhufeng.com/js/ad_iframe_6294_1.html";document.body.appendChild(iframe);}</script><script src="http://j.wit.qq.com/sc/crystal_ad_wm.js"></script><script type="text/javascript" src="http://lb.l.qq.com/lview?loc=_adb_14465_10129654&callback=crystal2.addStaticSlot&dtype=2"></script>'];
