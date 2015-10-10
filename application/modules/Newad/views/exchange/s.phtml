@@ -31,7 +31,7 @@
        if(window.console){ console.log("tx_callback--0--callback" );
        } 
        var i = document.getElementById("MZADX_<?php echo $media['sites'][0] ;?>");
-    <?php if (in_array(end($sites), array(4) ) || in_array(end($media['sites']), array(1641,1593,1591))){ ?>
+    <?php if (in_array(end($sites), array(4,5) ) || in_array(end($media['sites']), array(1641,1593,1591))){ ?>
    
        var iframe = document.createElement("iframe");
        iframe.setAttribute("width","<?php echo $media['size'][0];?>");
