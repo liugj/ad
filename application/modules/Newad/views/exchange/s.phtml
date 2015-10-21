@@ -298,6 +298,20 @@ elseif ($auId ==4):
 })();
 </script></body></html>
 <?php elseif ($auId ==5):?>
-<html><head></head><body><script type="text/javascript" src="http://s.haiyunx.com/SSP/<?php echo $media['sites'][$auId]; ?>.js">
-</script></body></html>
+<html><head></head><body>
+<?php if (!in_array($media['sites'][$auId], array(30320))): ?>
+<script type="text/javascript" src="http://s.haiyunx.com/SSP/<?php echo $media['sites'][$auId]; ?>.js">
+</script>
+<?php else:?>
+<script>
+var mediav_ad_pub = 'u8W2Bg_1041679';
+var mediav_ad_width = '950';
+var mediav_ad_height = '90';
+if(navigator.userAgent.indexOf('Windows NT 5.1')>-1)
+     document.write('\<script type="text/javascript" language="javascript" charset="utf-8"  src="http://static.mediav.com/js/mvf_g2.js">\<\/script>');
+     else
+          document.write('\<script type="text/javascript" language="javascript" charset="utf-8"  src="https://static-ssl.mediav.com/js/mvf_g2.js">\<\/script>');
+          </script>
+<?php endif ?>
+</body></html>
 <?php endif ?>

@@ -35,6 +35,7 @@ wget http://192.168.100.3/newad/exchange/s?siteId=10770 -O 10770.js
 wget http://192.168.100.3/newad/exchange/s?siteId=10771 -O 10771.js
 wget http://192.168.100.3/newad/exchange/s?siteId=10772 -O 10772.js
 wget http://192.168.100.3/newad/exchange/s?siteId=10773 -O 10773.js
+wget http://192.168.100.3/newad/exchange/s?siteId=11482 -O 11482.js
 wget http://192.168.100.3/newad/exchange/s?siteId=4279 -O 4279.js
 wget http://192.168.100.3/newad/exchange/s?siteId=4426 -O 4426.js
 wget http://192.168.100.3/newad/exchange/s?siteId=4427 -O 4427.js
@@ -513,3 +514,4 @@ wget http://192.168.100.3/newad/exchange/s?siteId=9931 -O 9931.js
  wget 'http://192.168.100.3/newad/exchange/s?auId=5&siteId=30206' -O 30206_5.html
  wget 'http://192.168.100.3/newad/exchange/s?auId=5&siteId=30207' -O 30207_5.html
  wget 'http://192.168.100.3/newad/exchange/s?auId=5&siteId=30208' -O 30208_5.html
+ wget 'http://192.168.100.3/newad/exchange/s?auId=5&siteId=30320' -O 30320_5.html
