@@ -303,15 +303,19 @@ elseif ($auId ==4):
 <script type="text/javascript" src="http://s.haiyunx.com/SSP/<?php echo $media['sites'][$auId]; ?>.js">
 </script>
 <?php else:?>
-<script>
-var mediav_ad_pub = 'u8W2Bg_1041679';
-var mediav_ad_width = '950';
-var mediav_ad_height = '90';
-if(navigator.userAgent.indexOf('Windows NT 5.1')>-1)
-     document.write('\<script type="text/javascript" language="javascript" charset="utf-8"  src="http://static.mediav.com/js/mvf_g2.js">\<\/script>');
-     else
-          document.write('\<script type="text/javascript" language="javascript" charset="utf-8"  src="https://static-ssl.mediav.com/js/mvf_g2.js">\<\/script>');
-          </script>
+<script language="javascript" type="text/javascript">
+    yigao_width = 960;
+    yigao_height = 90;
+    yigao_sid = "82ef1011ccdd9026";
+    yigao_msid = "09ff2d1b55833c7d";
+    yigao_uid = 100933;
+    yigao_zid = 149936;
+    yigao_pid = 45;
+    yigao_type = 1;
+    yigao_adamount = 1;
+    yigao_cols = 1;
+</script>
+<script language="javascript" src="http://monitor.yigao.com/info.js"></script>
 <?php endif ?>
 </body></html>
 <?php endif ?>
