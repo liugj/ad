@@ -137,7 +137,7 @@ function callback_<?php echo $media['sites'][0] ; ?>() {
         console.log("mz_callback--0--callback" );
     }
     var i = document.getElementById("MZADX_<?php echo $media['sites'][0] ; ?>");
-    <?php if (in_array(end($sites), array(4) ) || in_array(end($media['sites']), array(1641,1593,1591))){ ?>
+    <?php if (in_array(end($sites), array(4,6) ) || in_array(end($media['sites']), array(1641,1593,1591))){ ?>
        var iframe = document.createElement("iframe");
        iframe.setAttribute("width","<?php echo $media['size'][0]; ?>");
        iframe.setAttribute("height","<?php echo $media['size'][1]; ?>");
@@ -297,6 +297,24 @@ elseif ($auId ==4):
     document.body.insertBefore(e, document.body.children.item(0))
 })();
 </script></body></html>
+<?php elseif ($auId ==6):?>
+<html><head></head><body>
+<script>
+(function() {
+    if (!document.body) return setTimeout(arguments.callee, 50);
+    var e = document.createElement("script");
+    e.type = "text/javascript",
+    e.text = '_guanggao_pub= "26dd1a00eca98c2a5e17";',
+    e.text += '_guanggao_slot= "<?php echo $media['sites'][$auId];?>";',
+    document.body.insertBefore(e, document.body.children.item(0));
+    var e = document.createElement("script");
+    e.src = "http://sub.adhufeng.com/js/26dd1a00eca98c2a5e17",
+    e.type = "text/javascript",
+    document.body.insertBefore(e, document.body.children.item(0))
+})();
+</script>
+
+</body></html>
 <?php elseif ($auId ==5):?>
 <html><head></head><body>
 <?php if (!in_array($media['sites'][$auId], array(30320))): ?>

@@ -1,7 +1,7 @@
 <?php 
 class ExchangeController extends Yaf\Controller_Abstract {
     public function  SAction() {//默认Action
-        $siteId = intval($this->getRequest()->get('siteId', 0));
+        $siteId = $this->getRequest()->get('siteId', 0);
         $auId   = intval($this->getRequest()->get('auId', 0));
         $ver    = $this->getRequest()->get('ver', '');     
         $id    = $this->getRequest()->get('id', 0);     
@@ -10,7 +10,7 @@ class ExchangeController extends Yaf\Controller_Abstract {
         $size       = $adConfig->size->toArray();
         $seq        = $adConfig->seq->toArray();
         $currentMediaUnion = array('seq'=>$seq,'sites'=>array());
-        $filename   = sprintf('%s/config/media/%d/%d', APP_PATH, $auId, $siteId);
+        $filename   = sprintf('%s/config/media/%d/%s', APP_PATH, $auId, $siteId);
         if (file_exists($filename)) {
             $content    = trim(file_get_contents($filename));
             $temp = explode(',', $content);
