@@ -300,19 +300,10 @@ elseif ($auId ==4):
 <?php elseif ($auId ==6):?>
 <html><head></head><body>
 <script>
-(function() {
-    if (!document.body) return setTimeout(arguments.callee, 50);
-    var e = document.createElement("script");
-    e.type = "text/javascript",
-    e.text = '_guanggao_pub= "26dd1a00eca98c2a5e17";',
-    e.text += '_guanggao_slot= "<?php echo $media['sites'][$auId];?>";',
-    document.body.insertBefore(e, document.body.children.item(0));
-    var e = document.createElement("script");
-    e.src = "http://sub.adhufeng.com/js/26dd1a00eca98c2a5e17",
-    e.type = "text/javascript",
-    document.body.insertBefore(e, document.body.children.item(0))
-})();
+_guanggao_pub = "26dd1a00eca98c2a5e17"; 
+_guanggao_slot = "<?php echo $media['sites'][$auId];?>"; 
 </script>
+<script src="http://m.adpro.cn/adpro.js"></script>
 
 </body></html>
 <?php elseif ($auId ==5):?>
