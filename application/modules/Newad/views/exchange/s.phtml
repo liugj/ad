@@ -137,7 +137,7 @@ function callback_<?php echo $media['sites'][0] ; ?>() {
         console.log("mz_callback--0--callback" );
     }
     var i = document.getElementById("MZADX_<?php echo $media['sites'][0] ; ?>");
-    <?php if (in_array(end($sites), array(4,6,7) ) || in_array(end($media['sites']), array(1641,1593,1591))){ ?>
+    <?php if (in_array(end($sites), array(4,6) ) || in_array(end($media['sites']), array(1641,1593,1591))){ ?>
        var iframe = document.createElement("iframe");
        iframe.setAttribute("width","<?php echo end($sites) == 7 && $media['size'][0] ==960 ? 970 : $media['size'][0]; ?>");
        iframe.setAttribute("height","<?php echo $media['size'][1]; ?>");
@@ -152,6 +152,29 @@ function callback_<?php echo $media['sites'][0] ; ?>() {
            i.style.display = "none";
            i.parentNode.insertBefore(iframe, i);
        }
+    <?php }elseif (in_array(end($sites), array(7) )) { ?>
+     var js =  document.createElement("script");
+     js.src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+     js.async=true;
+     
+     var ins = document.createElement("ins");
+     ins.className="adsbygoogle";
+     ins.style.display="inline-block";
+     ins.style.width="970px";
+     ins.style.height="60px";
+     ins.setAttribute("data-ad-client", "ca-pub-6037339213072232");
+     ins.setAttribute("data-ad-slot", "5192023306");
+     
+     var js2 =  document.createElement("script");
+     js2.text = "(adsbygoogle = window.adsbygoogle || []).push({});";
+
+       if (i) {
+           i.style.display = "none";
+           i.parentNode.insertBefore(js, i);
+           i.parentNode.insertBefore(ins, i);
+           i.parentNode.insertBefore(js2, i);
+       }
+
     <?php }elseif (in_array(end($sites), array(5) )) { ?>
         var js = document.createElement("script");
         js.src="http://s.haiyunx.com/SSP/<?php echo end($media['sites']); ?>.js";
