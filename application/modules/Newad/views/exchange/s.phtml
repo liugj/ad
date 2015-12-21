@@ -1,4 +1,4 @@
-<?php var_dump($media); exit; $sites = array_keys($media['sites']);
+<?php $sites = array_keys($media['sites']);
 ?>
 <?php if ($ver == 'r99' && $auId ==0):
  ob_start(); 
@@ -137,7 +137,7 @@ function callback_<?php echo $media['sites'][0] ; ?>() {
         console.log("mz_callback--0--callback" );
     }
     var i = document.getElementById("MZADX_<?php echo $media['sites'][0] ; ?>");
-    <?php if (in_array(end($sites), array(4,6) ) || in_array(end($media['sites']), array(1641,1593,1591))){ ?>
+    <?php if (in_array(end($sites), array(4,6,8) ) || in_array(end($media['sites']), array(1641,1593,1591))){ ?>
        var iframe = document.createElement("iframe");
        iframe.setAttribute("width","<?php echo end($sites) == 7 && $media['size'][0] ==960 ? 970 : $media['size'][0]; ?>");
        iframe.setAttribute("height","<?php echo $media['size'][1]; ?>");
