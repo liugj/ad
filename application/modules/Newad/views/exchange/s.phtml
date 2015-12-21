@@ -1,4 +1,4 @@
-<?php  $sites = array_keys($media['sites']);
+<?php var_dump($media); exit; $sites = array_keys($media['sites']);
 ?>
 <?php if ($ver == 'r99' && $auId ==0):
  ob_start(); 
@@ -332,6 +332,16 @@ elseif ($auId ==4):
 </script>
 
 </body></html>
+<?php elseif ($auId ==8):?>
+<html><head></head><body>
+<script>
+_guanggao_pub = "caf9b81d425c83f1f360"; 
+_guanggao_slot = "<?php echo $media['sites'][$auId];?>"; 
+</script>
+<script src="http://js.shoozen.net/js/caf9b81d425c83f1f360"></script>
+
+</body></html>
+
 <?php elseif ($auId ==6):?>
 <html><head></head><body>
 <script>
