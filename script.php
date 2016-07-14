@@ -21,7 +21,18 @@ foreach ($mz  as $key=> &$value){
     $value .='@'. $mz_script[$key];
     $items[] = str_replace('@', ',', $value);
 }
-file_put_contents('media.csv', implode("\n", $items));
+file_put_contents('media.csv', implode("\r\n", $items));
+exit;
+foreach ($lines as $line ) {
+   if (!$line) continue;
+   $items = explode('@', $line);
+}
+var_dump($items);
+exit;
+
+$content = preg_replace(array_values($map), array_keys($map), $content);
+echo $content;
+
 function gen_shell_script($items){
         $ad = [];
 	$shells = [];
@@ -32,7 +43,7 @@ function gen_shell_script($items){
 		list($id, $channel)  =explode("_", $key) ;
 		if ($channel ==0) {
 		  	$shells[]= sprintf($patterns[0],  $id, $id);
-                        $ad [$id] = sprintf('http://www.adhufeng.com/newad/exchange/s?siteId=%d', $id);
+                        $ad [$id] = sprintf("<script type=\"text/javascript\" src=\"http://ad321.cc/newad/exchange/s?siteId=%d\"></script>", $id);
 		}else{
 			$shells [] = sprintf($patterns[1],  $id, $key);
 		}
@@ -64,8 +75,8 @@ function  f2c($content, $s, &$mz) {
 		$items = explode('@', $line);
 		$items[5] = str_replace('*', '_', $items[5]);
 		$items[5] = preg_replace(array_values($map), array_keys($map), $items[5]);
-		$results[$items[9]."_0"] = sprintf('%d_1,%s', $items[8], $items[5]);
-		$results[$items[8]."_1"] = sprintf('%d_0,%s', $items[9], $items[5]);
+		$results[$items[9]."_0"] = sprintf('%d_1,%s', $items[10], $items[5]);
+		$results[$items[10]."_1"] = sprintf('%d_0,%s', $items[9], $items[5]);
 		$mz [$items[9]] = $line;
 	}
 	return $results;
